@@ -36,10 +36,10 @@ data: $(addprefix $(TOPDIR)/data/, $(addsuffix _points.dat, $(PARAMSETS)))
 	$(warning Runtime data for set $* not present ($@). See README.)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
 
 .c.o:
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 .PHONY : clean
 clean:
